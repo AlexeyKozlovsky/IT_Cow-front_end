@@ -30,13 +30,12 @@ function App() {
 
 
   return (
-    <BrowserRouter>
-      {/* <div className="App"> 
+    <div className="App">
+      <BrowserRouter>
         <NaviBar/>
-        <MyCard title="Хирург" desc="dsflkdsjfh" img="https://firebasestorage.googleapis.com/v0/b/it-cow.appspot.com/o/doctor_images%2Fsurgeon.jpg?alt=media&token=3cfaec61-5d38-4347-8a93-e0cfbd154571"/>
-    </div> */}
-      <AppRouter/>
-    </BrowserRouter>
+        <AppRouter/>
+      </BrowserRouter>
+    </div>
   );
 }
 
