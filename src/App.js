@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import NaviBar from './Navibar';
 import MyCard from './Mycard';
 
-import firebase from 'firebase';
+import firebase from './firebase';
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
   var database = firebase.database();
 
   const dbRef = firebase.database().ref();
-  dbRef.child("users").child(userId).get().then((snapshot) => {
+  dbRef.child("cards").get().then((snapshot) => {
     if (snapshot.exists()) {
       console.log(snapshot.val());
     } else {
