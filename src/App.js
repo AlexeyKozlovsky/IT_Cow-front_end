@@ -3,11 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import NaviBar from './Navibar';
 import MyCard from './Mycard';
 
+import firebase from './../firebase.js'
+
 
 function App() {
 
   var database = firebase.database();
-  
+
   const dbRef = firebase.database().ref();
   dbRef.child("users").child(userId).get().then((snapshot) => {
     if (snapshot.exists()) {
