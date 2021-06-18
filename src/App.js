@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import NaviBar from './Navibar';
 import MyCard from './Mycard';
 
-import firebase from './../firebase.js'
+import firebase from 'firebase';
 
 
 function App() {
