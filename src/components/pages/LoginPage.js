@@ -43,7 +43,6 @@ export default function LoginPage() {
     console.log("sadsad")
     return (
         <div>
-            <h1>ASDSAd</h1>
             <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
