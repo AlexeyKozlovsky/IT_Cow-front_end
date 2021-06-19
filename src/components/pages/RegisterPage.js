@@ -13,18 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import firebase from './../../firebase';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -57,7 +46,7 @@ export default function RegisterPage() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Вход
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
@@ -69,7 +58,7 @@ export default function RegisterPage() {
                 required
                 fullWidth
                 id="firstName"
-                label="First Name"
+                label="Имя"
                 autoFocus
               />
             </Grid>
@@ -79,7 +68,7 @@ export default function RegisterPage() {
                 required
                 fullWidth
                 id="lastName"
-                label="Last Name"
+                label="Фамилия"
                 name="lastName"
                 autoComplete="lname"
               />
@@ -90,7 +79,7 @@ export default function RegisterPage() {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="Электронная почта"
                 name="email"
                 autoComplete="email"
               />
@@ -101,7 +90,7 @@ export default function RegisterPage() {
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label="Пароль"
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -110,7 +99,7 @@ export default function RegisterPage() {
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+                label="Я хочу получать персональные рассылки."
               />
             </Grid>
           </Grid>
@@ -121,20 +110,17 @@ export default function RegisterPage() {
             color="primary"
             className={classes.submit}
           >
-            Sign Up
+            Зарегистрироваться
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
               <Link href="#" variant="body2">
-                Already have an account? Sign in
+                Уже есть аккаунт? Войти.
               </Link>
             </Grid>
           </Grid>
         </form>
       </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
     </Container>
   );
 }

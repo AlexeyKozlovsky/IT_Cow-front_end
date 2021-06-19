@@ -40,7 +40,6 @@ export default function LoginPage() {
 
     const classes = useStyles();
 
-    console.log("sadsad")
     return (
         <div>
             <Container component="main" maxWidth="xs">
@@ -50,7 +49,7 @@ export default function LoginPage() {
             <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-            Sign in
+            Вход
             </Typography>
             <form className={classes.form} noValidate>
             <TextField
@@ -59,7 +58,7 @@ export default function LoginPage() {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="Электронная почта"
                 name="email"
                 autoComplete="email"
                 autoFocus
@@ -70,14 +69,14 @@ export default function LoginPage() {
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label="Пароль"
                 type="password"
                 id="password"
                 autoComplete="current-password"
             />
             <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
+                label="Запомнить меня"
             />
             <Button
                 type="submit"
@@ -91,12 +90,12 @@ export default function LoginPage() {
             <Grid container>
                 <Grid item xs>
                 <Link href="#" variant="body2">
-                    Forgot password?
+                    Забыли пароль?
                 </Link>
                 </Grid>
                 <Grid item>
                 <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
+                    {"Уже есть аккаунт? Войти."}
                 </Link>
                 </Grid>
             </Grid>
