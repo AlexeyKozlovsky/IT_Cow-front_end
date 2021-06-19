@@ -4,26 +4,27 @@ import MyCard from '../Mycard'
 import surg from '../../resources/surgeon.jpg'
 import '../Mycard.css'
 
-
+import firebase from './../../firebase'
 
 export default function DoctorsPage() {
 
-    const cardInfo = [
-        { title: "Хирург", desc: "sdfdsf", img: "https://firebasestorage.googleapis.com/v0/b/it-cow.appspot.com/o/doctor_images%2Fsurgeon.jpg?alt=media&token=3cfaec61-5d38-4347-8a93-e0cfbd154571" },
-        { title: "sdfdsfdsfг", desc: "sdfdsf", img: "https://firebasestorage.googleapis.com/v0/b/it-cow.appspot.com/o/doctor_images%2Fsurgeon.jpg?alt=media&token=3cfaec61-5d38-4347-8a93-e0cfbd154571" },
-        { title: "Хирург", desc: "sdfdsf", img: "https://firebasestorage.googleapis.com/v0/b/it-cow.appspot.com/o/doctor_images%2Fsurgeon.jpg?alt=media&token=3cfaec61-5d38-4347-8a93-e0cfbd154571" },
-        { title: "Хирург", desc: "sdfdsf", img: "https://firebasestorage.googleapis.com/v0/b/it-cow.appspot.com/o/doctor_images%2Fsurgeon.jpg?alt=media&token=3cfaec61-5d38-4347-8a93-e0cfbd154571" },
-        { title: "Хирург", desc: "sdfdsf", img: "https://firebasestorage.googleapis.com/v0/b/it-cow.appspot.com/o/doctor_images%2Fsurgeon.jpg?alt=media&token=3cfaec61-5d38-4347-8a93-e0cfbd154571" },
-        { title: "asd", desc: "sdfdsf", img: "https://firebasestorage.googleapis.com/v0/b/it-cow.appspot.com/o/doctor_images%2Fsurgeon.jpg?alt=media&token=3cfaec61-5d38-4347-8a93-e0cfbd154571" },
-        { title: "Хирург", desc: "sdfdsf", img: "https://firebasestorage.googleapis.com/v0/b/it-cow.appspot.com/o/doctor_images%2Fsurgeon.jpg?alt=media&token=3cfaec61-5d38-4347-8a93-e0cfbd154571" },
-        { title: "Хирург", desc: "sdfdsf", img: "https://firebasestorage.googleapis.com/v0/b/it-cow.appspot.com/o/doctor_images%2Fsurgeon.jpg?alt=media&token=3cfaec61-5d38-4347-8a93-e0cfbd154571" },
-        { title: "Хирург", desc: "sdfdsf", img: "https://firebasestorage.googleapis.com/v0/b/it-cow.appspot.com/o/doctor_images%2Fsurgeon.jpg?alt=media&token=3cfaec61-5d38-4347-8a93-e0cfbd154571" },
-        { title: "Хирург", desc: "sdfdsf", img: "https://firebasestorage.googleapis.com/v0/b/it-cow.appspot.com/o/doctor_images%2Fsurgeon.jpg?alt=media&token=3cfaec61-5d38-4347-8a93-e0cfbd154571" }
-    ]
+    const dbRef = firebase.database().ref();
+    var cardInfo = [];
+
+    dbRef.child("cards").get().then((cards) => {
+        if (cards.exists()) {
+            cardInfo = cards.val();
+            console.log(cards.val());
+        } else {
+            console.log("No data available");
+        }
+    }).catch((error) => {
+        console.error(error);
+    });
 
     const renderCard = (card, index) => {
         return (
-            <MyCard title={card.title} desc={card.desc} img={card.img} key={index} className="box"/>
+            <MyCard doctorTypeId={card.doctor_type_id} desc={card.desc} imageId={card.image_id} key={index} className="box"/>
         )
     }
     return (
@@ -36,11 +37,8 @@ export default function DoctorsPage() {
         // </Container>
         <div>
             <div className="grid" style={{margin: '2rem', padding: '1rem', alignItems: 'center'}}>
-            { cardInfo.map(renderCard) }
+                { cardInfo.map(renderCard) }
+            </div>
         </div>
-        </div>
-        
-
-
     )
 }
