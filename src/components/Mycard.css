@@ -1,3 +1,21 @@
 .text-rect {
     opacity: 0.5;
 }
+
+.card {
+    background-color: black;
+    color: white;
+    margin: 20px;
+}
+
+.box {
+    margin: 100px;
+  }
+  
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    scroll-behavior: smooth;
+  }
+  
