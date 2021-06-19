@@ -5,7 +5,7 @@ import { LOGIN_ROUTE, ROOT_ROUTE } from '../utils/consts'
 
 
 export default function AppRouter() {
-    const user = false
+    const user = true
     return user ? 
         (
             <Switch>
