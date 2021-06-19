@@ -85,7 +85,7 @@ export default function LoginPage() {
                 color="primary"
                 className={classes.submit}
             >
-                Sign In
+                Войти
             </Button>
             <Grid container>
                 <Grid item xs>
