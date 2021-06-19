@@ -109,6 +109,7 @@ export default function RegisterPage() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={reg}
           >
             Зарегистрироваться
           </Button>
@@ -123,4 +124,18 @@ export default function RegisterPage() {
       </div>
     </Container>
   );
+}
+
+function reg() {
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in 
+    var user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ..
+  });
 }
