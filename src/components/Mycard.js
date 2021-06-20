@@ -1,7 +1,6 @@
 import { Card, Image } from "react-bootstrap";
 import serg from '../resources/surgeon.jpg'
 
-
 export default function MyCard({ doctor_type_id, desc, image_id }) {
     return (
 

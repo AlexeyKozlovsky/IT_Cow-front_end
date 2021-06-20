@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import MyCard from '../Mycard'
 import surg from '../../resources/surgeon.jpg'
 import '../Mycard.css'
+import card from '../Mycard.js'
 
 import firebase from './../../firebase'
 
@@ -21,7 +22,7 @@ export default function DoctorsPage() {
     }).catch((error) => {
         console.error(error);
     });
-
+    
     const renderCard = (card, index) => {
         return (
             <MyCard doctorTypeId={card.doctor_type_id} desc={card.desc} imageId={card.image_id} key={index} className="box"/>
@@ -39,7 +40,10 @@ export default function DoctorsPage() {
         // </Container>
         <div>
             <div className="grid" style={{margin: '2rem', padding: '1rem', alignItems: 'center'}}>
-                { cardInfo.map(renderCard) }
+                { cardInfo.map(card, index =>
+            <MyCard doctorTypeId={card.doctor_type_id} desc={card.desc} imageId={card.image_id} key={index} className="box"/>
+                )}
+        
             </div>
         </div>
     )
