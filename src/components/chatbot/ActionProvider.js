@@ -21,7 +21,7 @@ class ActionProvider {
         withAvatar: true,
       });
   
-      this.addMessageToBotState(message)
+      this.addMessageToBotState(message);
     };
   
     addMessageToBotState = (messages) => {
@@ -37,6 +37,38 @@ class ActionProvider {
         }));
       }
     };
+
+    reply = (message) => {
+        var rep;
+        const mes = message.toLowerCase()
+
+        // ЭТО ДЛЯ ДЕМОНТРАЦИИ ТОГО, КАК БОТ ДОЛЖЕН РАБОТАТЬ.
+        // МЫ НЕ ПЫТАЕМСЯ ВЫСТАВИТЬ ЭТО ЗА РАБОТУ БОТА. ЭТО ПРОСТО ДЕМОНСТРАЦИЯ ИДЕИ
+        // В дальнейшем, при корректном подключении API реализовать продемонстрированный
+        // функционал будет несложно
+        
+        switch (mes) {
+            case "здравствуйте, сегодня утром проснулся от кашля":
+                rep = this.createChatBotMessage("Не могли бы вы уточнить какой у вас кашель? Лающий, приступообразный, может кровохаркание?", {
+                    withAvatar: true});
+                break;
+            case "ну, крови точно нет, скорее приступообразный":
+                rep = this.createChatBotMessage("Тогда я могу вам порекомендовать врачей. Желаете ознакомиться со списком или расскажете о симптомах подробнее? Может быть у вас температура?", {
+                    withAvatar: true});
+                break;
+            case "да, давайте поговорим подробнее":
+                rep = this.createChatBotMessage("У вас есть температура?", {
+                    withAvatar: true});
+                break; 
+            case "да, температура есть, высокая":
+                rep = this.createChatBotMessage("", {
+                    withAvatar: true});
+                break;
+        }
+        
+
+        this.addMessageToBotState(rep)
   }
+}
   
   export default ActionProvider;

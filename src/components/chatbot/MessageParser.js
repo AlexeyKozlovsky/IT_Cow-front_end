@@ -1,3 +1,6 @@
+import axios from 'axios';
+import { GET_SYMPT_URL_PREFIX } from './config';
+
 class MessageParser {
     constructor(actionProvider, state) {
       this.actionProvider = actionProvider;
@@ -9,6 +12,12 @@ class MessageParser {
   
     parse = (message) => {
       const lowerCase = message.toLowerCase();
+
+    //   console.log(GET_SYMPT_URL_PREFIX+message)
+    //     axios.get(GET_SYMPT_URL_PREFIX+message, {headers: {'Access-Control-Allow-Origin': '*'}}).then(res => {
+    //         console.log(res)
+    //     })
+      
   
       if (
         lowerCase.includes("messageparser") ||
@@ -18,7 +27,9 @@ class MessageParser {
       ) {
         return this.actionProvider.handleMessageParser();
       }
-      return this.actionProvider.handleDefault();
+
+      return this.actionProvider.reply(message);
+      //return this.actionProvider.handleDefault();
     };
   }
   

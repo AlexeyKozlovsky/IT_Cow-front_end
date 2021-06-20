@@ -3,6 +3,7 @@ import { createChatBotMessage } from "react-chatbot-kit";
 import MessageParser from "./MessageParser";
 import ActionProvider from "./ActionProvider";
 
+export const GET_SYMPT_URL_PREFIX = "https://lod.medlinx.online/terminology/api/v1/fhir/ValueSet/$expand?url=http://terminology.medlinx.online/ValueSet/helzy-search-vs&displayLanguage=ru&offset=0&count=10&filter=";
 
 const botName = "Электронный доктор";
 
