@@ -12,17 +12,21 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import '../../utils/App.css'
 
 import firebase from './../../firebase';
 
 const useStyles = makeStyles((theme) => ({
-    rectangle: {
-        display: 'inline-block',
-        width: '50%',
-        height: '100%',
-        background: 'white',
-        opacity: 0.85
-    },
+  rectangle: {
+    display: 'inline-block',
+    width: '100%',
+    height: '100%',
+    background: 'radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0))',
+    opacity: 0.85,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center'
+},
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -46,7 +50,8 @@ export default function RegisterPage() {
   const classes = useStyles();
 
   return (
-    <div className={classes.rectangle}>
+    <div className="page">
+       <div className={classes.rectangle}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
@@ -131,5 +136,7 @@ export default function RegisterPage() {
         </div>
       </Container>
     </div>
+    </div>
+   
   );
 }

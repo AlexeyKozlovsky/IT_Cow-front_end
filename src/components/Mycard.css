@@ -12,10 +12,34 @@
     margin: 100px;
   }
   
-  .grid {
+.grid {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     scroll-behavior: smooth;
-  }
+    overflow: scroll;
+    min-width: 100vh;
+    min-height: 100vh;
+}
+
+.card__rect {
+  background-color: rgba(0, 0, 0, 0.5);
+}
   
+.card__border {
+  width: 30vh;
+  stroke: #000;
+  box-shadow: seashell;
+}
+
+
+.card2__border {
+  width: 30vh;
+  height: 50vh;
+}
+
+.card__title {
+  min-height: 0;
+  overflow: hidden;
+  align-content: center;
+}

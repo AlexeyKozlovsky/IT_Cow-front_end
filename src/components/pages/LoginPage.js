@@ -13,15 +13,20 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Block, PlayCircleFilledWhite } from '@material-ui/icons';
+import '../../utils/App.css'
+import './LoginPage.css'
 
 export default function LoginPage() {
     const useStyles = makeStyles((theme) => ({
         rectangle: {
             display: 'inline-block',
-            width: '50%',
+            width: '100%',
             height: '100%',
-            background: 'white',
-            opacity: 0.85
+            background: 'radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0))',
+            opacity: 0.85,
+            alignSelf: 'center',
+            justifyContent: 'center',
+            alignItems: 'center'
         },
         paper: {
             marginTop: theme.spacing(8),
@@ -45,8 +50,9 @@ export default function LoginPage() {
     const classes = useStyles();
 
     return (
-        <div className={classes.rectangle}>
-            <Container component="main" maxWidth="xs">
+        <div className="page" style={{alignItems: 'center'}}>
+             <div className={classes.rectangle}>
+            <Container component="main" maxWidth="xs" alignSelf="center">
                 <CssBaseline />
                     <div className={classes.paper}>
                         <Avatar className={classes.avatar}>
@@ -107,5 +113,7 @@ export default function LoginPage() {
                 </div>
             </Container>
         </div>
+        </div>
+       
     );
 }

@@ -30,10 +30,10 @@ function App() {
 
 
   return (
-    <div className="App">
-      <BrowserRouter>
+    <div>
+      <BrowserRouter className="App">
         <NaviBar/>
-        <AppRouter />
+        <AppRouter className="page"/>
       </BrowserRouter>
     </div>
   );

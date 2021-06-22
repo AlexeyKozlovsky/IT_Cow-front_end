@@ -1,12 +1,17 @@
 .App {
-  text-align: center;
-  background-image: url(../resources/bg_image.jpg);
-  position: fixed;
+  /* text-align: center;
+  /* background-image: url(../resources/bg_image.jpg); */
+  /* position: fixed; */
+  /* background-color: #cccccc;
   min-width: 100%;
   min-height: 100%;
   background-size: cover;
-  background-position: center;
-}
+  background-position: center; */
+  min-width: 100vh;
+  min-height: 100vh;
+  background: url(../resources/bg_image.jpg); 
+  background-size: cover;
+} 
 
 .App-logo {
   height: 40vmin;
@@ -47,4 +52,15 @@
   background-image: url(../resources/bg_image.jpg);
   background-size: contain;
 }
+
+.page {
+  min-width: 100vh;
+  min-height: 100vh;
+  background-image: url(../resources/bg_image.jpg);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 

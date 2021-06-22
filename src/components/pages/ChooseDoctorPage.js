@@ -3,89 +3,59 @@ import { Container, Row, Col } from 'react-bootstrap'
 import MyCard from '../Mycard'
 import surg from '../../resources/surgeon.jpg'
 import '../Mycard.css'
-import card from '../Mycard.js'
+import '../../utils/App.css'
 
 import firebase from './../../firebase'
 import { StylesProvider } from '@material-ui/core'
 
-// export default function DoctorsPage() {
+import ScrollArea from 'react-scrollbar'
 
-//     const dbRef = firebase.database().ref();
-//     let cardInfo = [];
-
-//     dbRef.child("cards").get().then((cards) => {
-//         if (cards.exists()) {
-//             setTimeout(() => {cardInfo = cards.val();}, 60000)
-            
-//             console.log(cards.val());
-//         } else {
-//             console.log("No data available");
-//         }
-//     }).catch((error) => {
-//         console.error(error);
-//     });
-    
-//     const renderCard = (card, index) => {
-//         return (
-//             <MyCard doctorTypeId={card.doctor_type_id} desc={card.desc} imageId={card.image_id} key={index} className="box"/>
-//         )
-//     }
-
-//     console.log(cardInfo);
-//     return (
-//         // <Container style={{ paddingTop: '2rem', paddingBottom: '2rem'}}>
-//         //     <Row>
-//         //         <Col>
-//         //             <MyCard title={cardInfo[0].title} />
-//         //         </Col>
-//         //     </Row>
-//         // </Container>
-//         <div>
-//             <div className="grid" style={{margin: '2rem', padding: '1rem', alignItems: 'center'}}>
-//                 { cardInfo.map(card, index =>
-//             <MyCard doctorTypeId={card.doctor_type_id} desc={card.desc} imageId={card.image_id} key={index} className="box"/>
-//                 )}
-        
-//             </div>
-//         </div>
-//     )
-// }
 
 export default class DoctorsPage extends React.Component {
 
     constructor() {
         super()
-        let cardInfo;
         this.state = {cardInfo: []}
     }
 
-    componentDidUpdate() {
+    componentDidMount() {
         const dbRef = firebase.database().ref();
 
-        dbRef.child("cards").get().then((cards) => {
-            if (cards.exists()) {
-                this.state.cardInfo = cards.val()
-                
-                console.log(cards.val());
-            } else {
-                console.log("No data available");
-            }
-        }).catch((error) => {
-            console.error(error);
-        });
 
-        this.render()
+        // dbRef.child("cards").child(0).get().then((card) => {
+        //     console.log(card.val())
+        // })
+
+        dbRef.child("doctor_types").get().then((doctors) => {
+            this.setState({cardInfo: doctors.val()});
+            console.log(this.state.cardInfo)
+        })
+        
+        // dbRef.child("cards").get().then((cards) => {
+        //     if (cards.exists()) {
+        //         this.state.cardInfo = cards.val()
+                
+        //         console.log(cards.val());
+        //     } else {
+        //         console.log("No data available");
+        //     }
+        // }).catch((error) => {
+        //     console.error(error);
+        // });
     }
 
     render() {
+        console.log(this.state.cardInfo)
         return (
             // <div>{this.cardInfo}</div>
-            <div className="grid" style={{margin: '2rem', padding: '1rem', alignItems: 'center'}}>
-                { this.state.cardInfo.map(card, index =>
-            <MyCard doctorTypeId={card.doctor_type_id} desc={card.desc} imageId={card.image_id} key={index} className="box"/>
-                )}
-        
-            </div>
+
+                <div className="grid page">
+
+            { this.state.cardInfo.map( (card, index) => 
+                <MyCard type={card.type} image_id={card.image_id}></MyCard>)}
+            
+             </div>
+            
         ) 
     }
 }
