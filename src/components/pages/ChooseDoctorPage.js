@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import MyCard from '../Mycard'
+import MyCard2 from '../MyCard2'
 import surg from '../../resources/surgeon.jpg'
 import '../Mycard.css'
 import '../../utils/App.css'
@@ -52,7 +52,7 @@ export default class DoctorsPage extends React.Component {
                 <div className="grid page">
 
             { this.state.cardInfo.map( (card, index) => 
-                <MyCard type={card.type} image_id={card.image_id}></MyCard>)}
+                <MyCard2 title={card.type} img={card.image_id} desc={card.desc}></MyCard2>)}
             
              </div>
             

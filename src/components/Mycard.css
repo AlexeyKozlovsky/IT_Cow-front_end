@@ -20,6 +20,7 @@
     overflow: scroll;
     min-width: 100vh;
     min-height: 100vh;
+    justify-content: center;
 }
 
 .card__rect {

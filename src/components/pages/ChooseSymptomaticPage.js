@@ -5,6 +5,11 @@ import MyCard2 from '../MyCard2'
 
 export default function SymptomsPage() {
     return (
-            <MyCard2/>
+        <div className="page">
+            <div className="grid">
+                <MyCard2/>
+            </div>
+        </div>
+            
     )
 }
