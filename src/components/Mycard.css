@@ -16,11 +16,9 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    scroll-behavior: smooth;
-    overflow: scroll;
-    min-width: 100vh;
-    min-height: 100vh;
     justify-content: center;
+
+    overflow-y: hidden;
 }
 
 .card__rect {
@@ -44,3 +42,4 @@
   overflow: hidden;
   align-content: center;
 }
+

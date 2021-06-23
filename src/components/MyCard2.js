@@ -20,7 +20,8 @@ export default function MyCard2({title, img, desc}) {
         return (
             <div className="container" style={{ backgroundImage: `url(${img})` }} 
                 onMouseEnter={() => setClicked(true)}
-                onMouseLeave={() => setClicked(false)}>
+                onMouseLeave={() => setClicked(false)}
+                onLoad={() => console.log("LOADED IMAGE")}>
                 <div className="title">
                     <p className="title__text">{title}</p>
                 </div>

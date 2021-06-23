@@ -46,7 +46,6 @@ export default class DoctorsPage extends React.Component {
 
     componentDidUpdate() {
         console.log("Updated");
-        console.log("Test")
     }
 
     render() {
@@ -54,12 +53,15 @@ export default class DoctorsPage extends React.Component {
         return (
             // <div>{this.cardInfo}</div>
 
-                <div className="grid page">
+            <div className="page">
+                <div className="grid" onLoad={() => console.log("LOADED")}>
 
-            { this.state.cardInfo.map( (card, index) => 
-                <MyCard2 title={card.type} img={card.image_id} desc={card.desc}></MyCard2>)}
+                { this.state.cardInfo.map( (card, index) => 
+                    <MyCard2 title={card.type} img={card.image_id} desc={card.desc}></MyCard2>)}
+
+                </div>
+            </div>
             
-             </div>
             
         ) 
     }

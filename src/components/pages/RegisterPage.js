@@ -51,7 +51,8 @@ export default function RegisterPage() {
 
   return (
     <div className="page">
-       <div className={classes.rectangle}>
+      <div>
+      <div className={classes.rectangle}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
@@ -136,6 +137,8 @@ export default function RegisterPage() {
         </div>
       </Container>
     </div>
+      </div>
+       
     </div>
    
   );

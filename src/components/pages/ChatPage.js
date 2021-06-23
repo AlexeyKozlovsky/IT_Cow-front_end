@@ -10,12 +10,13 @@ import '../../utils/App.css'
 
 export default function ChatPage() {
     return (
-        <div className="page">
-             <Container className="pr-5 pt-5" style={{background: "rgba(255, 255, 255, 0.6)", justifyContent: "center"}}>
-                <ChatBot config={config} actionProvider={ActionProvider} messageParser={MessageParser}
-                placeholderText="Напишите своё сообщение" />
-            </Container>
-        </div>
+        <div className="page"></div>
+        // <div className="page">
+        //      <Container>
+        //         <ChatBot config={config} actionProvider={ActionProvider} messageParser={MessageParser}
+        //         placeholderText="Напишите своё сообщение" />
+        //     </Container>
+        // </div>
            
     )
 }

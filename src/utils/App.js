@@ -31,9 +31,9 @@ function App() {
 
   return (
     <div>
-      <BrowserRouter className="App">
+      <BrowserRouter className="App page">
         <NaviBar/>
-        <AppRouter className="page"/>
+        <AppRouter/>
       </BrowserRouter>
     </div>
   );
