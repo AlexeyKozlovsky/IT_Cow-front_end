@@ -44,6 +44,10 @@ export default class DoctorsPage extends React.Component {
         // });
     }
 
+    componentDidUpdate() {
+        console.log("Updated");
+    }
+
     render() {
         console.log(this.state.cardInfo)
         return (
