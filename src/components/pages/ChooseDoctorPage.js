@@ -46,6 +46,7 @@ export default class DoctorsPage extends React.Component {
 
     componentDidUpdate() {
         console.log("Updated");
+        console.log("Test")
     }
 
     render() {
